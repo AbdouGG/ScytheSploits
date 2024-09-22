@@ -1,0 +1,30 @@
+{
+    "scripts": [
+      {
+        "id": 1,
+        "title": "Aim-Bot Script",
+        "description": "This powerful Aimbot script allows you to aim correctly on fps games.",
+        "features": [
+          "Auto lock",
+          "Wallcheck, Teamcheck",
+          "Advanced Esp(Boxes,Tracers,Names,Distance,more+)"
+        ],
+        "language": "lua",
+        "code": "loadstring(game:HttpGet('https://raw.githubusercontent.com/ScytheSploits1/ScytheSploits-Arsenal/refs/heads/main/.Scy', true))()",
+        "image": "https://cdn.discordapp.com/attachments/944246656646402049/1286704006839795865/image.png?ex=66f0da3d&is=66ef88bd&hm=b3973cda1da165ea929be783dc358b6e8fe3ea9b807c4c34ce1f4eacd6c506a0&"
+      },
+      {
+        "id": 2,
+        "title": "File Organizer Script",
+        "description": "Automatically organize files in a directory based on their extensions. Keep your downloads folder or any other directory neat and tidy.",
+        "features": [
+          "Customizable file categories",
+          "Moves files to appropriate folders",
+          "Logs actions for easy tracking"
+        ],
+        "language": "lua",
+        "code": "local http = require(\"socket.http\")\nlocal lxml = require(\"LuaXML\")\n\nlocal function scrapeWebsite(url)\n    local response, status = http.request(url)\n    if status ~= 200 then\n        print(\"Failed to fetch the website. Status code: \" .. status)\n        return\n    end\n\n    local xmlContent = lxml.eval(response)\n    \n    -- Example: Extract all <h1> tags\n    local h1Tags = xmlContent:find(\"h1\")\n    print(\"Found \" .. #h1Tags .. \" <h1> tags:\")\n    for i, tag in ipairs(h1Tags) do\n        print(i .. \". \" .. tag[1])\n    end\n\n    -- Example: Extract all links\n    local links = xmlContent:find(\"a\")\n    print(\"\\nFound \" .. #links .. \" links:\")\n    for i, link in ipairs(links) do\n        local href = link.href\n        local text = link[1] or \"[No text]\"\n        print(i .. \". \" .. text .. \" (\" .. (href or \"no href\") .. \")\")\n    end\nend\n\nscrapeWebsite(\"https://example.com\")",
+        "image": "https://cdn.discordapp.com/attachments/944246656646402049/1282473941432143893/image.png?ex=66f09fee&is=66ef4e6e&hm=2349f396285f02305f3b8bd8fd6befd59798ea4fde24656d3ecde484beb25743&"
+      }
+    ]
+  }
